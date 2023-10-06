@@ -1,0 +1,20 @@
+version-command:
+  update-available: "Hay una nueva actualizacion en Spigot. Haz click aqui para descargarlo."
+
+prefix: "§e[§aVillagerFollow§e]"
+
+enable-command: "ha sido habilitado o ya está habilitado."
+
+disable-command: "ha sido deshabilitado o ya está deshabilitado."
+
+reload-command: "ha sido recargado"
+
+help-command:
+  message-reload: "Actualizar la configuración."
+  message-enable: "Habilite el plugin si está deshabilitado."
+  message-disable:  "Deshabilite el plugin si está habilitado."
+  message-version:  "Obtenga información sobre la versión en la que está jugando y busque la última actualización disponible."
+
+villager-pay:
+  start: "El aldeano te va a seguir por "
+  end: "El aldeano ya no te sigue."

@@ -1,0 +1,57 @@
+name: VillagerFollow
+version: '${project.version}'
+main: me.darksnakex.villagerfollow.VillagerFollow
+author: DarkSnakeX
+description: Plugin that makes nearby villagers follow the player using emeralds as a lure.
+
+commands:
+  villagerfollow:
+    description: Main command for VillagerFollow plugin
+    aliases: [vf]
+    permission: villagerfollow.use
+    permission-message: You do not have permissions
+  villagerfollow help:
+    description: Gives you info about the commands available
+    usage: /villagerfollow help
+    permission: villagerfollow.help
+    permission-message: You do not have permissions
+  villagerfollow reload:
+    description: Reload the plugin's configuration files without restarting the server.
+    usage: /villagerfollow reload
+    permission: villagerfollow.reload
+    permission-message: You do not have permissions
+  villagerfollow enable:
+    description: Enable the plugin.
+    usage: /villagerfollow enable
+    permission: villagerfollow.enable
+    permission-message: You do not have permissions
+  villagerfollow disable:
+    description: Disable the plugin.
+    usage: /villagerfollow disable
+    permission: villagerfollow.disable
+    permission-message: You do not have permissions
+  villagerfollow version:
+    description: Check the version and info of the plugin.
+    usage: /villagerfollow version
+    permission: villagerfollow.version
+    permission-message: You do not have permissions
+
+permissions:
+  villagerfollow.help:
+    description: Gives help with the commands
+    default: op
+  villagerfollow.use:
+    description: Main command of the plugin
+    default: op
+  villagerfollow.reload:
+    description: Allows players to reload the plugin's configuration.
+    default: op
+  villagerfollow.enable:
+    description: Allows players to enable the plugin.
+    default: op
+  villagerfollow.disable:
+    description: Allows players to disable the plugin.
+    default: op
+  villagerfollow.version:
+    description: Allows players to check the plugin's version and info.
+    default: op

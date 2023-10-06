@@ -1,0 +1,24 @@
+Config:
+  # Check for updates of the plugin
+  check-update: true
+  # Set true to enable the plugin or false to disable it
+  villager-follow: true
+  # Make the villager follow a player that is holding an emerald
+  villager-follow-player: true
+  # Change the radius (distance) of the affected villagers, default 15
+  # Note: When the villager is more than 25 blocks away,
+  # the villager will teleport to the player
+  villager-follow-radius: 15
+  # Make the villagers follow the emeralds that are in the ground
+  villager-allow-goto-emerald: true
+  # Make the villagers catch the emeralds that are in the ground
+  villager-allow-catch-emerald: true
+  # If villager-allow-catch-emerald is true, the villager will be healed.
+  villager-allow-catch-emerald-heal: true
+  # Players can pay villagers to follow them for a period of time
+  villager-pay-follow: true
+  # Change the time that a villager follows you when you pay him with emeralds,
+  # time is measured in seconds, default 120 (seconds)
+  villager-pay-follow-time: 120
+  # Change the speed at which the villagers will follow you, default 0.75
+  villager-follow-speed: 0.75
