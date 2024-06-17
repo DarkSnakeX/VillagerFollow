@@ -5,16 +5,14 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Villager;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+
 import static me.darksnakex.villagerfollow.interactions.VillagerInteraction.followThing;
 
 public class VillagerInteractionHandEmerald implements Listener {
@@ -25,6 +23,7 @@ public class VillagerInteractionHandEmerald implements Listener {
         VillagerInteractionHandEmerald.plugin = plugin;
     }
     public static double radius;
+
 
     @EventHandler
     public void villagerFollowsPlayer(PlayerItemHeldEvent event) {

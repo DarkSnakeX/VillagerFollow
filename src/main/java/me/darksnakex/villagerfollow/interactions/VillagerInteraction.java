@@ -1,5 +1,7 @@
 package me.darksnakex.villagerfollow.interactions;
 
+import me.gamercoder215.mobchip.EntityBrain;
+import me.gamercoder215.mobchip.ai.controller.EntityController;
 import me.gamercoder215.mobchip.bukkit.BukkitBrain;
 import org.bukkit.Location;
 import org.bukkit.entity.Villager;
@@ -7,16 +9,18 @@ import org.bukkit.entity.Villager;
 public class VillagerInteraction {
 
 
-    public static void followThing(Villager villager, Location location, double velocidad){
-        double distance = villager.getLocation().distance(location);
 
-        if (distance > 25) {
-            teleportToNearestGround(villager, location);
-        } else if(!(distance < 2) ){
-            BukkitBrain.getBrain(villager).getController().moveTo(location, velocidad).lookAt(location);
+        public static void followThing(Villager villager, Location location, double velocidad) {
+            double locvil = villager.getLocation().distance(location);
+            if (locvil > 25.0D) {
+                teleportToNearestGround(villager, location);
+            } else if (!(locvil < 3.00)) {
+                EntityBrain brain = BukkitBrain.getBrain(villager);
+                EntityController controller = brain.getController();
+                controller.moveTo(location, velocidad);
+                controller.lookAt(location);
+            }
         }
-
-    }
 
     private static void teleportToNearestGround(Villager villager, Location location) {
 
