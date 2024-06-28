@@ -1,0 +1,22 @@
+version-command:
+  update-available: "Modun daha güncel bir sürümü mevuct. İndirmek için tıklayın.."
+
+prefix: "§e[§aVillagerFollow§e]"
+
+enable-command: "aktif edildi ya da zaten aktif."
+
+disable-command: "devre dışı bırakıldı ya da zaten devre dışı."
+
+reload-command: "yeniden yüklendi."
+
+help-command:
+  message-reload: "Düzenlemeyi yenile."
+  message-enable: "Devre dışı ise plugini aktifleştir."
+  message-disable:  "Aktif ise plugini devre dışı bırak."
+  message-version:  "Get information about the version you are playing on and check for the latest update available."
+  message-version:  "Oynadığın sürüm hakkında bilgi edinmek ve güncel sürüm için tıkla."
+  
+
+villager-pay:
+  start: "Köylü seni takip ediyor "
+  end: "Köylü seni takip etmeyi bıraktı."
