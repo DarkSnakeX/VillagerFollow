@@ -1,0 +1,20 @@
+version-command:
+  update-available: "Spigot'ta daha güncel bir sürüm mevcut. İndirmek için tıklayın."
+
+prefix: "§e[§aVillagerFollow§e]"
+
+enable-command: "Aktif edildi ya da zaten aktif."
+
+disable-command: "Devre dışı bırakıldı ya da zaten devre dışı."
+
+reload-command: "Yeniden yüklendi."
+
+help-command:
+  message-reload: "Düzenlemeyi yenile."
+  message-enable: "Devre dışı ise plugini aktifleştir."
+  message-disable: "Aktif ise plugini devre dışı bırak."
+  message-version: "Oynadığın sürüm hakkında bilgi edinmek ve güncel sürüm için tıkla."
+
+villager-pay:
+  start: "Köylü seni takip ediyor."
+  end: "Köylü seni takip etmeyi bıraktı."
