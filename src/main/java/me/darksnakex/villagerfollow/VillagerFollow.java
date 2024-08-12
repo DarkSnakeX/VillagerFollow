@@ -26,6 +26,7 @@ public final class VillagerFollow extends JavaPlugin{
     public final PluginDescriptionFile pdffile = getDescription();
     public final String version = pdffile.getVersion();
     public String nombre = ChatColor.YELLOW+"["+ChatColor.GREEN+pdffile.getName()+ChatColor.YELLOW+"] "+ChatColor.GRAY;
+    public static boolean isSpigot = true;
 
     @Override
     public void onEnable() {
@@ -41,6 +42,7 @@ public final class VillagerFollow extends JavaPlugin{
             Bukkit.getConsoleSender().sendMessage(nombre + "Using Spigot version...");
         } else {
             Bukkit.getConsoleSender().sendMessage(nombre + "Using Paper version...");
+            isSpigot = false;
         }
 
 

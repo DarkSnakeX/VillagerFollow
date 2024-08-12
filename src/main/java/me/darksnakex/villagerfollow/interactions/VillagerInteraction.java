@@ -18,7 +18,7 @@ public class VillagerInteraction {
             if (locvil > 25.0D) {
                 teleportToNearestGround(villager, location);
             } else if (!(locvil < 3.00)) {
-                if (!VillagerFollow.isRunningOnSpigot()) {
+                if (!VillagerFollow.isSpigot) {
                     try {
                         Class<?> paperPathfinderClass = Class.forName("com.destroystokyo.paper.entity.PaperPathfinder");
                         Method getPathfinderMethod = villager.getClass().getMethod("getPathfinder");
