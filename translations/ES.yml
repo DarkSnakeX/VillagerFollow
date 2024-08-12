@@ -1,5 +1,5 @@
 version-command:
-  update-available: "Hay una nueva actualizacion en Spigot. Haz click aqui para descargarlo."
+  update-available: "Hay una nueva actualizacion. Haz click aqui para descargarlo."
 
 prefix: "§e[§aVillagerFollow§e]"
 
@@ -7,7 +7,7 @@ enable-command: "ha sido habilitado o ya está habilitado."
 
 disable-command: "ha sido deshabilitado o ya está deshabilitado."
 
-reload-command: "ha sido recargado"
+reload-command: "ha sido recargado."
 
 help-command:
   message-reload: "Actualizar la configuración."
@@ -18,3 +18,8 @@ help-command:
 villager-pay:
   start: "El aldeano te va a seguir por "
   end: "El aldeano ya no te sigue."
+
+warnings:
+  generalerror: "Error desconocido, si ves este mensaje reportalo."
+  classnotfound: "Clase not encontrada, si ves este mensaje reportalo."
+  methodnotfound: "Metodo no encontrado, si ves este mensaje reportalo."

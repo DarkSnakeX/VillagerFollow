@@ -37,6 +37,12 @@ public final class VillagerFollow extends JavaPlugin{
         registerConfig();
         checkMissingConfigKeys();
 
+        if (isRunningOnSpigot()) {
+            Bukkit.getConsoleSender().sendMessage(nombre + "Using Spigot version...");
+        } else {
+            Bukkit.getConsoleSender().sendMessage(nombre + "Using Paper version...");
+        }
+
 
         new Metrics(this,19294);
 
@@ -47,6 +53,11 @@ public final class VillagerFollow extends JavaPlugin{
                 Bukkit.getConsoleSender().sendMessage(nombre + "There is a new update available.");
             }
         });
+    }
+
+
+    public static boolean isRunningOnSpigot() {
+        return !Bukkit.getServer().getName().equalsIgnoreCase("Paper");
     }
 
     @Override

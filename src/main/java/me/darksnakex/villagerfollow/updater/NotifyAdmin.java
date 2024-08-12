@@ -31,8 +31,8 @@ public class NotifyAdmin implements Listener {
             new UpdateChecker(plugin, 111553).getVersion(version -> {
                 if (!plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
                     TextComponent message = new TextComponent(plugin.nombre + messagesConfig.getString("version-command.update-available"));
-                    message.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.spigotmc.org/resources/villagerfollow.111553/"));
-                    message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Go to spigot").create()));
+                    message.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://modrinth.com/plugin/villagerfollow"));
+                    message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click here to download").create()));
                     player.spigot().sendMessage(message);
                 }
             });

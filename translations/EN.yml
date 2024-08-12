@@ -1,5 +1,5 @@
 version-command:
-  update-available: "There is a new update available on Spigot. Click here to download it."
+  update-available: "There is a new update available. Click here to download it."
 
 prefix: "§e[§aVillagerFollow§e]"
 
@@ -18,3 +18,8 @@ help-command:
 villager-pay:
   start: "The villager is going to follow you for "
   end: "The villager is no longer following you."
+
+warnings:
+  generalerror: "Unknown error. If you see this please report it"
+  classnotfound: "Class not found. If you see this please report it"
+  methodnotfound: "Method not found. If you see this please report it"

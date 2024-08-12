@@ -1,10 +1,13 @@
 package me.darksnakex.villagerfollow.interactions;
 
-import me.gamercoder215.mobchip.EntityBrain;
+import me.darksnakex.villagerfollow.VillagerFollow;
 import me.gamercoder215.mobchip.ai.controller.EntityController;
 import me.gamercoder215.mobchip.bukkit.BukkitBrain;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Villager;
+
+import java.lang.reflect.Method;
 
 public class VillagerInteraction {
 
@@ -15,10 +18,26 @@ public class VillagerInteraction {
             if (locvil > 25.0D) {
                 teleportToNearestGround(villager, location);
             } else if (!(locvil < 3.00)) {
-                EntityBrain brain = BukkitBrain.getBrain(villager);
-                EntityController controller = brain.getController();
-                controller.moveTo(location, velocidad);
-                controller.lookAt(location);
+                if (!VillagerFollow.isRunningOnSpigot()) {
+                    try {
+                        Class<?> paperPathfinderClass = Class.forName("com.destroystokyo.paper.entity.PaperPathfinder");
+                        Method getPathfinderMethod = villager.getClass().getMethod("getPathfinder");
+                        Object pathfinder = getPathfinderMethod.invoke(villager);
+                        Method moveToMethod = paperPathfinderClass.getMethod("moveTo", Location.class, double.class);
+                        moveToMethod.invoke(pathfinder, location, velocidad);
+                    } catch (ClassNotFoundException e) {
+                        Bukkit.getLogger().warning( "Class PaperPathfinder not found. If you see this please report it");
+                    } catch (NoSuchMethodException e) {
+                        Bukkit.getLogger().warning("Method moveTo not found. If you see this please report it");
+                    } catch (Exception e) {
+                        Bukkit.getLogger().warning("Unknown error. If you see this please report it");
+                        e.printStackTrace();
+                    }
+                } else {
+                    EntityController controller = BukkitBrain.getBrain(villager).getController();
+                    controller.moveTo(location, velocidad);
+                    controller.lookAt(location);
+                }
             }
         }
 
