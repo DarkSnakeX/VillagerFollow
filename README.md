@@ -3,4 +3,4 @@ Encourage a lively village life with this plugin that allows players to use emer
 
 ![name](https://bstats.org/signatures/bukkit/VillagerFollow.svg)
 
-For more info go to the spigot plugin website.
+For more info go to the modrinth plugin website.
