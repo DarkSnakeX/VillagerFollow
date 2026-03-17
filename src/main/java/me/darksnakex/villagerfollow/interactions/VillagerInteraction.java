@@ -31,7 +31,7 @@ public class VillagerInteraction {
                         Bukkit.getLogger().warning("Method moveTo not found. If you see this please report it");
                     } catch (Exception e) {
                         Bukkit.getLogger().warning("Unknown error. If you see this please report it");
-                        e.printStackTrace();
+                        System.out.println(e.getMessage());
                     }
                 } else {
                     EntityController controller = BukkitBrain.getBrain(villager).getController();

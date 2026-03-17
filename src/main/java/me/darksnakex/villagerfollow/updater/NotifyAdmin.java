@@ -2,9 +2,9 @@ package me.darksnakex.villagerfollow.updater;
 
 import me.darksnakex.villagerfollow.VillagerFollow;
 import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -32,7 +32,7 @@ public class NotifyAdmin implements Listener {
                 if (!plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
                     TextComponent message = new TextComponent(plugin.nombre + messagesConfig.getString("version-command.update-available"));
                     message.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://modrinth.com/plugin/villagerfollow"));
-                    message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click here to download").create()));
+                    message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("Click here to download")));
                     player.spigot().sendMessage(message);
                 }
             });
