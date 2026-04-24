@@ -4,7 +4,7 @@
     <groupId>me.darksnakex</groupId>
     <artifactId>VillagerFollow</artifactId>
     <name>VillagerFollow</name>
-    <version>1.7.7</version>
+    <version>1.7.8</version>
     <packaging>jar</packaging>
     <build>
         <resources>
@@ -99,7 +99,7 @@
         <dependency>
             <groupId>com.github.datatags.MobChipLite</groupId>
             <artifactId>mobchip-bukkit</artifactId>
-            <version>1.10.16</version>
+            <version>1.10.19</version>
         </dependency>
         <dependency>
             <groupId>io.papermc.paper</groupId>
@@ -110,7 +110,7 @@
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            <version>3.0.2</version>
+            <version>3.2.1</version>
             <scope>compile</scope>
         </dependency>
 
