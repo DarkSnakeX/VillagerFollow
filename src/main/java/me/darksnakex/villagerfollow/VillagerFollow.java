@@ -7,12 +7,12 @@ import me.darksnakex.villagerfollow.interactions.VillagerInteractionHandEmerald;
 import me.darksnakex.villagerfollow.updater.NotifyAdmin;
 import me.darksnakex.villagerfollow.updater.UpdateChecker;
 import org.bstats.bukkit.Metrics;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.*;
@@ -45,8 +45,8 @@ public final class VillagerFollow extends JavaPlugin{
             isSpigot = false;
         }
 
-
-        new Metrics(this,19294);
+        int pluginId = 19294;
+        new Metrics(this,pluginId);
 
         new UpdateChecker(this, 111553).getVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {

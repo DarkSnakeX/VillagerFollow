@@ -12,6 +12,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import net.md_5.bungee.api.chat.hover.content.Text;
 
 
 public class VillagerFollowCommand implements CommandExecutor {
@@ -31,8 +32,7 @@ public class VillagerFollowCommand implements CommandExecutor {
                         if (!plugin.version.equalsIgnoreCase(version)) {
                             TextComponent message = new TextComponent(plugin.nombre + messagesConfig.getString("version-command.update-available"));
                             message.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://modrinth.com/plugin/villagerfollow"));
-                            message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click here to download").create()));
-                            commandSender.spigot().sendMessage(message);
+                            message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(new ComponentBuilder("Click here to download").create())));                            commandSender.spigot().sendMessage(message);
                             if(commandSender instanceof Player){
                                 ((Player) commandSender).playSound(((Player) commandSender).getLocation(), Sound.ENTITY_VILLAGER_YES, 1.0f, 1.0f);
                             }
