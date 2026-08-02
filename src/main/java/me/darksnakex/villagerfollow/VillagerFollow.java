@@ -18,7 +18,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.io.*;
 
 
-public final class VillagerFollow extends JavaPlugin{
+public class VillagerFollow extends JavaPlugin{
 
     public String rutaConfig;
     private YamlConfiguration messages = null;
@@ -45,8 +45,12 @@ public final class VillagerFollow extends JavaPlugin{
             isSpigot = false;
         }
 
-        int pluginId = 19294;
-        new Metrics(this,pluginId);
+        try {
+            int pluginId = 19294;
+            new Metrics(this,pluginId);
+        } catch (Exception e) {
+            Bukkit.getConsoleSender().sendMessage(nombre + "Error while sending metrics data: " + e.getMessage());
+        }
 
         new UpdateChecker(this, 111553).getVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
