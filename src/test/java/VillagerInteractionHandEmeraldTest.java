@@ -21,14 +21,7 @@ class VillagerInteractionHandEmeraldTest {
     void setUp() {
         server = MockBukkit.mock();
         plugin = MockBukkit.load(VillagerFollow.class);
-
-        plugin.getConfig().set("Config.villager-follow", "true");
-        plugin.getConfig().set("Config.villager-follow-player", "true");
-        plugin.getConfig().set("Config.villager-follow-radius", 10.0);
-        plugin.getConfig().set("Config.villager-follow-speed", 1.0);
-
-        server.getPluginManager().registerEvents(
-                new VillagerInteractionHandEmerald(plugin), plugin);
+        server.getPluginManager().registerEvents(new VillagerInteractionHandEmerald(plugin), plugin);
     }
 
     @AfterEach

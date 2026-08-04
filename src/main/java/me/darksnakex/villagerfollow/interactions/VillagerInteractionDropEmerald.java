@@ -57,7 +57,7 @@ public class VillagerInteractionDropEmerald implements Listener {
                                     if (itemEntity instanceof Item && ((Item) itemEntity).getItemStack().getType() == Material.EMERALD) {
                                         double distance = villagerLocation.distance(itemEntity.getLocation());
                                         if (distance <= radius) {
-                                            followThing(villager, itemEntity.getLocation(), velocidad);
+                                            followThing(plugin, villager, itemEntity.getLocation(), velocidad);
                                         }
                                         if (distance <= 2 && Objects.equals(config.getString("Config.villager-allow-catch-emerald"), "true")) {
                                             ItemStack esmeralda = new ItemStack(Material.EMERALD, 1);

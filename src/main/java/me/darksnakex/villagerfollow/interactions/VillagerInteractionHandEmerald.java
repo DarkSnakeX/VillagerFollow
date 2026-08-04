@@ -49,7 +49,7 @@ public class VillagerInteractionHandEmerald implements Listener {
                             for (Entity entity : world.getNearbyEntities(target, radius, radius, radius)) {
                                 if (entity.getType() == EntityType.VILLAGER && !entity.hasMetadata("paid")) {
                                     Villager villager = (Villager) entity;
-                                    followThing(villager, target, velocidad);
+                                    followThing(plugin, villager, target, velocidad);
                                 }
                             }
                         }

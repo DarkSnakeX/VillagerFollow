@@ -7,42 +7,43 @@ import me.darksnakex.villagerfollow.interactions.VillagerInteractionHandEmerald;
 import me.darksnakex.villagerfollow.updater.NotifyAdmin;
 import me.darksnakex.villagerfollow.updater.UpdateChecker;
 import org.bstats.bukkit.Metrics;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.*;
+import java.util.Objects;
 
 
-public class VillagerFollow extends JavaPlugin{
+public class VillagerFollow extends JavaPlugin {
 
     public String rutaConfig;
     private YamlConfiguration messages = null;
     private File messagesFile = null;
     public final PluginDescriptionFile pdffile = getDescription();
     public final String version = pdffile.getVersion();
-    public String nombre = ChatColor.YELLOW+"["+ChatColor.GREEN+pdffile.getName()+ChatColor.YELLOW+"] "+ChatColor.GRAY;
+    public String nombre = ChatColor.YELLOW+"["+ ChatColor.GREEN+pdffile.getName()+ChatColor.YELLOW+"] "+ChatColor.GRAY;
     public static boolean isSpigot = true;
 
     @Override
     public void onEnable() {
-        registerprefix();
+        registerPrefix();
         Bukkit.getConsoleSender().sendMessage(nombre + "has been enabled");
         registerMessages();
-        registrosdecomandos();
-        registrareventos();
+        registerCommands();
+        registerEvents();
         registerConfig();
         checkMissingConfigKeys();
 
-        if (isRunningOnSpigot()) {
-            Bukkit.getConsoleSender().sendMessage(nombre + "Using Spigot version...");
-        } else {
+        if (isRunningOnPaper()) {
             Bukkit.getConsoleSender().sendMessage(nombre + "Using Paper version...");
             isSpigot = false;
+        } else {
+            Bukkit.getConsoleSender().sendMessage(nombre + "Using Spigot version...");
         }
 
         try {
@@ -62,8 +63,13 @@ public class VillagerFollow extends JavaPlugin{
     }
 
 
-    public static boolean isRunningOnSpigot() {
-        return !Bukkit.getServer().getName().equalsIgnoreCase("Paper");
+    public static boolean isRunningOnPaper() {
+        try {
+            Class.forName("io.papermc.paper.configuration.Configuration");
+            return true;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
     }
 
     @Override
@@ -71,11 +77,11 @@ public class VillagerFollow extends JavaPlugin{
         Bukkit.getConsoleSender().sendMessage(nombre + "has been disabled");
     }
 
-    public void registrosdecomandos(){
-        getCommand("villagerfollow").setExecutor(new VillagerFollowCommand(this));
+    public void registerCommands(){
+        Objects.requireNonNull(getCommand("villagerfollow")).setExecutor(new VillagerFollowCommand(this));
     }
 
-    public void registrareventos() {
+    public void registerEvents() {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new VillagerInteractionHandEmerald(this), this);
         pm.registerEvents(new NotifyAdmin(this),this);
@@ -135,7 +141,7 @@ public class VillagerFollow extends JavaPlugin{
         }
     }
 
-    public void registerprefix(){
+    public void registerPrefix(){
         FileConfiguration messagesConfig = getMessages();
         nombre = ChatColor.translateAlternateColorCodes('&', messagesConfig.getString("prefix") +  " §7");
     }
@@ -143,62 +149,62 @@ public class VillagerFollow extends JavaPlugin{
     private void checkMissingConfigKeys() {
         FileConfiguration config = getConfig();
 
-        boolean modificado = false;
+        boolean modified = false;
 
         if (!config.isSet("Config.check-update")) {
             config.set("Config.check-update", true);
-            modificado = true;
+            modified = true;
         }
 
         if (!config.isSet("Config.villager-follow")) {
             config.set("Config.villager-follow", true);
-            modificado = true;
+            modified = true;
 
         }
 
         if (!config.isSet("Config.villager-follow-player")) {
             config.set("Config.villager-follow-player", true);
-            modificado = true;
+            modified = true;
 
         }
 
         if (!config.isSet("Config.villager-follow-radius")) {
             config.set("Config.villager-follow-radius", 12);
-            modificado = true;
+            modified = true;
 
         }
 
         if (!config.isSet("Config.villager-allow-goto-emerald")) {
             config.set("Config.villager-allow-goto-emerald", true);
-            modificado = true;
+            modified = true;
 
         }
 
         if (!config.isSet("Config.villager-allow-catch-emerald")) {
             config.set("Config.villager-allow-catch-emerald", true);
-            modificado = true;
+            modified = true;
 
         }
 
         if (!config.isSet("Config.villager-pay-follow")) {
             config.set("Config.villager-pay-follow", true);
-            modificado = true;
+            modified = true;
 
         }
 
         if (!config.isSet("Config.villager-pay-follow-time")) {
             config.set("Config.villager-pay-follow-time", 120);
-            modificado = true;
+            modified = true;
 
         }
 
         if (!config.isSet("Config.villager-allow-catch-emerald-heal")) {
             config.set("Config.villager-allow-catch-emerald-heal", true);
-            modificado = true;
+            modified = true;
 
         }
 
-        if (modificado) {
+        if (modified) {
             saveConfig();
         }
     }

@@ -56,7 +56,7 @@ public class VillagerFollowCommand implements CommandExecutor {
                 plugin.registerConfig();
                 plugin.reloadConfig();
                 plugin.reloadMessages();
-                plugin.registerprefix();
+                plugin.registerPrefix();
                 commandSender.sendMessage(plugin.nombre + messagesConfig.getString("reload-command"));
                 return true;
             } else if (args[0].equalsIgnoreCase("help") && commandSender.hasPermission("villagerfollow.help")) {

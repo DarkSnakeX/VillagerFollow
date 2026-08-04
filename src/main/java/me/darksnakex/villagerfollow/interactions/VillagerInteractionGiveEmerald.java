@@ -61,7 +61,7 @@ public class VillagerInteractionGiveEmerald implements Listener {
                                 cancel();
                                 return;
                             }
-                            followThing(villager,event.getPlayer().getLocation(), velocidad);
+                            followThing(plugin, villager,event.getPlayer().getLocation(), velocidad);
                             timepassed++;
                         }
                     }.runTaskTimer(plugin, 0, 20);
